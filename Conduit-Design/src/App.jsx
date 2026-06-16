@@ -44,7 +44,8 @@ function App() {
   const randomItem = (list) => list[Math.floor(Math.random() * list.length)];
 
   const handleMystery = () => {
-    toggleTheme();
+    const shouldFlipTheme = Math.random() > 0.5;
+    if (shouldFlipTheme) toggleTheme();
     setHeadline(randomItem(surprises));
   };
 
@@ -79,12 +80,12 @@ function App() {
             Portfolio coming soon...
           </h2>
 
-          <div className="grid gap-3 sm:grid-cols-3">
+          <div className="flex flex-wrap items-center justify-center gap-3">
             <button
               className="rounded-lg bg-rose-700 px-4 py-2 font-medium text-white transition hover:bg-indigo-700"
               onClick={handleMystery}
             >
-              👀 See what this button does
+              This button might change the theme 🤷🏾‍♂️
             </button>
 
             <button
@@ -101,7 +102,6 @@ function App() {
           <p className="mt-3 rounded-lg bg-black/50 p-3 text-sm text-slate-100">
             {fortune}
           </p>
-
         </div>
       </section>
       <div className="ticks"></div>
